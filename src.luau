@@ -1,6 +1,6 @@
 local Lib = {}
 local UIS = game:GetService("UserInputService")
-local StarterGui = game:GetService("StarterGui")
+local CoreGui = game:GetService("CoreGui")
 
 local Themes = {
 	impulse = {
@@ -129,7 +129,7 @@ function Lib:CreateWindow(themeName, hubName)
 	local screenGui = Instance.new("ScreenGui")
 	screenGui.Name = self._actualName
 	screenGui.ResetOnSpawn = false
-	screenGui.Parent = StarterGui
+	screenGui.Parent = CoreGui
 
 	local mainFrame = Instance.new("Frame", screenGui)
 	mainFrame.Name = "MainFrame"
