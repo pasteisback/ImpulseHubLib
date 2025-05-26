@@ -141,7 +141,7 @@ function Lib:CreateWindow(themeName, hubName)
 	self._mainFrame = mainFrame
 	
 	mainFrame.InputBegan:Connect(function(input)
-		if sliderDragging then return end -- 🔒 Prevent dragging while slider is active
+		if sliderDragging then return end
 		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 			dragToggle = true
 			dragStart = input.Position
@@ -410,7 +410,7 @@ function Lib:CreateWindow(themeName, hubName)
 			local dragging = false
 
 			local function update(input)
-				if dragToggle then return end -- ✅ live check
+				if dragToggle then return end
 				local pos = input.Position.X - sliderBar.AbsolutePosition.X
 				local ratio = math.clamp(pos / sliderBar.AbsoluteSize.X, 0, 1)
 				fill.Size = UDim2.new(ratio, 0, 1, 0)
@@ -422,7 +422,7 @@ function Lib:CreateWindow(themeName, hubName)
 			sliderBar.InputBegan:Connect(function(input)
 				if input.UserInputType == Enum.UserInputType.MouseButton1 then
 					sliderDragging = true
-					dragging = true -- ✅ Needed to allow update() to work
+					dragging = true 
 					dragToggle = false
 				end
 			end)
@@ -430,7 +430,7 @@ function Lib:CreateWindow(themeName, hubName)
 			UIS.InputEnded:Connect(function(input)
 				if input.UserInputType == Enum.UserInputType.MouseButton1 then
 					sliderDragging = false
-					dragging = false -- ✅ Stop updating
+					dragging = false
 				end
 			end)
 
