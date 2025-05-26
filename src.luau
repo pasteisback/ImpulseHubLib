@@ -561,4 +561,3 @@ function Lib:CreateWindow(themeName, hubName)
 end
 
 return Lib
-print("[Impulse Library]: loaded!")
